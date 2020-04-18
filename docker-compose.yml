@@ -1,0 +1,17 @@
+version: '3'
+networks:
+  reactjs_network:
+    driver: "bridge"
+services:
+  node:
+    container_name: nodejs
+    working_dir: /var/www/api
+    image: node:13
+    tty: true
+    volumes:
+      - .:/var/www/api
+    ports:
+      - 3000:3000
+    networks:
+      - reactjs_network
+ 
