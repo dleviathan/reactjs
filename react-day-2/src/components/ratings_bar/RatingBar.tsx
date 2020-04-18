@@ -23,9 +23,8 @@ export class RatingBar extends React.Component<RatingBarProps, RatingBarState> {
 
     constructor(props: RatingBarProps) {
         super(props);
-        let state = this.initRatingBar(props);
         this.state = {
-            listState: state,
+            listState: this.initRatingBar(props),
             currentRate: 0
         }
     };
@@ -43,10 +42,11 @@ export class RatingBar extends React.Component<RatingBarProps, RatingBarState> {
 
     mouseEnter = (idRate: number) => {
         const rated = this.state.listState;
+        const ratedValue = this.state.currentRate;
         rated.forEach((rate, i) => {
             rate.state = i <= idRate ? "fas" : "far";
         });
-        this.setState({listState: rated, currentRate: 0})
+        this.setState({listState: rated, currentRate: ratedValue})
     };
 
     mouseOut = () => {
