@@ -13,7 +13,7 @@ const PostList = () => {
         posts: []
     };
 
-    const fetchPosts = async url => {
+    const fetchPosts = async (url: string) => {
         try {
             const response = await fetch(url);
             if (response.status != 200) {
